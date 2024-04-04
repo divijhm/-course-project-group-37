@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Upload</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+
+    
+</head>
+
+<body
+    style=" background-attachment: fixed; background-image: url(https://c4.wallpaperflare.com/wallpaper/824/766/324/nebula-4k-teal-turquoise-wallpaper-preview.jpg);background-size: cover;background-repeat: no-repeat;">
+    <h1 style=" text-align: center;background: linear-gradient(90deg, #ff0000    5%, #00B053 15%, #064a60 30%);
+    -webkit-background-clip: text;
+    -webkit-text-stroke: 12px transparent; color:  rgba(13,255,239,0.839);font-size: 3rem;;"><b>Upload Audio</b></h1>
+    <a href="/page" style="position: fixed;top: 20px;left: 20px;z-index: 9999;display: block;"><span>Go Back</span></a>
+
+    <a href="/logout" style="position: fixed;top: 20px;right: 20px;z-index: 9999;display: block;"><span>Logout</span></a>
+
+    <div class="container">
+        <div id="drop-zone" class="drop-zone">
+            <div class="drop-message"><b>
+                    <span>Drag & Drop Files Here</span>
+                    <span class="browse-link" onclick="document.getElementById('file-input').click()">or browse to
+                        upload</span></b>
+            </div>
+            <input type="file" id="file-input" multiple style="display: none;">
+        </div>
+    </div>
+
+    <div id="thumbnail-container" class="thumbnail-container">
+    </div>
+    <div id="file-list2">
+        <p class="empty" style="color: white;font-size: 1rem;">No files uploaded</p>
+    </div>
+    <div class="wrapper">
+        <a href="/edit"><span>Create Video</span></a>
+        </a>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            var dropZone = $('#drop-zone');
+            var thumbnailContainer = $('#thumbnail-container');
+
+            dropZone.on('dragover', function (e) {
+                e.preventDefault();
+                $(this).addClass('drag-over');
+            });
+
+            dropZone.on('dragleave', function (e) {
+                e.preventDefault();
+                $(this).removeClass('drag-over');
+            });
+
+            dropZone.on('drop', function (e) {
+                e.preventDefault();
+                $(this).removeClass('drag-over');
+                var files = e.originalEvent.dataTransfer.files;
+                handleFiles(files);
+            });
+
+            $('#file-input').on('change', function () {
+                var files = $(this)[0].files;
+                handleFiles(files);
+            });
+
+            function handleFiles(files) {
+                if (files.length > 0) {
+                    $('#file-list2 p').removeClass('empty').text(''); // Remove empty class and clear text
+                }
+
+                for (var i = 0; i < files.length; i++) {
+                    var file = files[i];
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+                        var audioName = $('<p>').text(  file.name);
+                        $('#file-list2').append(audioName);
+                    };
+                    reader.readAsDataURL(file);
+                }
+                uploadFiles(files);
+            }
+
+            function uploadFiles(files) {
+                var formData = new FormData();
+                for (var i = 0; i < files.length; i++) {
+                    formData.append('file', files[i]);
+                }
+                $.ajax({
+                    url: '/upload_audio',
+                    type: 'POST',
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    success: function (response) {
+                        console.log(response);
+                    },
+                    error: function (xhr, status, error) {
+                        console.error(xhr.responseText);
+                    }
+                });
+            }
+        });
+    </script>
+
+</body>
+
+</html>

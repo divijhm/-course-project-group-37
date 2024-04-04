@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registration Success</title>
+  <style>
+    body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('static/11.jpeg');
+    background-size: cover;
+  }
+  
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+  
+  .registration-box {
+    width: 400px;
+    height: 500px; /* increased height */
+    background-color: #333;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(13, 255, 239, 0.839);
+  }
+  
+  .user-image {
+    width: 200px;
+    height: 200px;
+    border-radius: 100%;
+    margin-top: 5px;
+  }
+  
+  .success-indicator {
+    position: absolute;
+    bottom: 20px;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+  }
+  
+  .circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    position: absolute;
+    opacity: 1;
+    transition: all 2s ease-in-out;
+  }
+  
+  .green-circle {
+    background-color: green;
+    top: 0;
+    left: 0;
+  }
+  
+  .white-circle {
+    background-color: white;
+    top: 0;
+    left: 0;
+  }
+  
+  .tick {
+    font-size: 60px;
+    color: green;
+    position: absolute;
+    top: 10% ; /* position below the image */
+    left: calc(50% - 25px);
+    transform: translateX(-40%);
+    opacity: 0;
+  }
+  
+  .success-text {
+    color: white;
+    font-size: 36px;
+    position: absolute;
+    bottom: 50px; /* adjust position */
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+  }
+  </style>
+
+</head>
+<body>
+  <div class="container">
+    <div class="registration-box">
+      <img src="/static/10.png"  alt="User Image" class="user-image">
+      <div class="success-indicator">
+        <div class="circle green-circle"></div>
+        <div class="circle white-circle"></div>
+        <div class="tick">&#10004;</div>
+        <div class="success-text"></div>
+      </div>
+    </div>
+  </div>
+
+  <script >
+   document.addEventListener("DOMContentLoaded", function() {
+    const successIndicator = document.querySelector('.success-indicator');
+  
+    setTimeout(() => {
+      successIndicator.style.opacity = '1';
+      animateCircles();
+      animateText();
+    }, 1000);
+  });
+  
+  function animateCircles() {
+    const greenCircle = document.querySelector('.green-circle');
+    const whiteCircle = document.querySelector('.white-circle');
+    const tick = document.querySelector('.tick');
+  
+    // Animation for green circle
+    setTimeout(() => {
+      greenCircle.style.opacity = '1';
+      greenCircle.style.top = 'calc(50% - 200px';
+      greenCircle.style.right = 'calc(50% - 25px)';
+    }, 0); // Start animation immediately
+  
+    // Animation for white circle
+    setTimeout(() => {
+      whiteCircle.style.opacity = '1';
+      whiteCircle.style.top = 'calc(50% - 200px)';
+      whiteCircle.style.left = 'calc(50% - 25px)';
+    }, 0); // Start animation immediately
+  
+    // Animation for tick
+    setTimeout(() => {
+      greenCircle.style.top = 'calc(50% - 200px)';
+      greenCircle.style.right = 'calc(50% - 50px)';
+      greenCircle.style.opacity-'1';
+  
+      // Delay the disappearance of circles to make them transition smoothly into the tick
+
+    }, 2000);
+    setTimeout(() => {
+      greenCircle.style.opacity = '0';
+      whiteCircle.style.opacity = '0';
+    }, 100);
+    setTimeout(() => {
+      tick.style.opacity = '1';
+      tick.style.top = 'calc(50% - 200px)'; // Corrected position calculation
+      tick.style.left = 'calc(50% - 25px)';
+    }, 3000); // Delayed animation for tick
+  }
+  
+  function animateText() {
+    const successText = document.querySelector('.success-text');
+    const text = "User registered SUCCESSFULLY";
+    let i = 0;
+  
+    const interval = setInterval(() => {
+      if (i >= text.length) {
+        clearInterval(interval);
+        return;
+      }
+      successText.textContent += text[i];
+      i++;
+      successText.style.opacity = '1';
+    }, 100);
+    
+    setTimeout(function() {
+      window.location.href = '/page'; // Replace 'new_page.html' with your desired destination
+    }, 6000); // 8000 milliseconds = 8 seconds
+  }
+   
+  </script>
+</body>
+</html>

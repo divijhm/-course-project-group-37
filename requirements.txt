@@ -1,0 +1,13 @@
+Flask
+Flask-JWT-Extended
+pymysql
+bcrypt
+Pillow
+opencv-python
+numpy
+mysql-connector-python
+moviepy
+psycopg2
+gunicorn
+werkzeug
+Flask-Bootstrap

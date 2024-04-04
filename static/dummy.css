@@ -1,0 +1,312 @@
+
+/* CSS */
+.button-74 {
+    background-color: #65dda7;
+    border: 2px solid #422800;
+    border-radius: 30px;
+    box-shadow: #422800 4px 4px 0 0;
+    color: #422800;
+    cursor: pointer;
+    display: inline-block;
+    font-weight: 600;
+    font-size: 18px;
+    padding: 0 18px;
+    line-height: 50px;
+    text-align: center;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+  }
+  
+  .button-74:hover {
+    background-color: #fff;
+  }
+  
+  .button-74:active {
+    box-shadow: #422800 2px 2px 0 0;
+    transform: translate(2px, 2px);
+  }
+  
+  @media (min-width: 768px) {
+    .button-74 {
+      min-width: 120px;
+      padding: 0 25px;
+    }
+  }
+  
+  
+  
+  
+      ::-webkit-scrollbar {
+          width: 20px;
+      }
+  
+      ::-webkit-scrollbar-track {
+          background-color: transparent;
+      }
+  
+      ::-webkit-scrollbar-thumb {
+          background-color: #d6dee1;
+      }
+  
+      ::-webkit-scrollbar-thumb {
+          background-color: #d6dee1;
+          border-radius: 20px;
+          border: 6px solid transparent;
+          background-clip: content-box;
+      }
+  
+      ::-webkit-scrollbar-thumb:hover {
+          background-color: #a8bbbf;
+      }
+  
+      #box3 {
+  
+          padding: 0.5vw;
+          flex-grow: 1;
+          height: 60vh;
+          width: 96vw;
+          display: flex;
+          flex-direction: row;
+          border: 4px solid #4b4949;
+          gap: 15px;
+          background-color: orange;
+      }
+  
+      #box5 {
+          margin: 0.1vw;
+          padding: 1.5%;
+          border: 3px solid #4b4949;
+  
+          background-color: black;
+          display: flex;
+          flex-wrap: wrap;
+          height: 58vh;
+          overflow-y: auto;
+          width: 35vw;
+          gap: 1%;
+      }
+  
+      #box7 {
+          margin: 0.1vw;
+          padding: 1.5%;
+          display: flex;
+          place-items: center;
+          align-content: center;
+          flex-direction: column;
+          height: 54vh;
+          overflow-y: auto;
+          width: 15vw;
+          gap: 1%;
+      }
+  
+      #box1 {
+          display: flex;
+          flex-direction: column;
+      }
+  
+      #box6 {
+          margin: 0.1vw;
+          padding: 2.5%;
+          flex-grow: 0.4;
+          /* border: solid 0.16vw #0de1ef; */
+          background-color: black;
+          display: flex;
+          height: 20vh;
+          overflow-x: auto;
+          width: 94vw;
+          gap: 12px;
+      }
+  
+      #audio-video {
+          place-items: center;
+          align-content: center;
+          margin: 0.1vw;
+          font-size:1.2rem;
+          /* background: #0de1ef; */
+          height: 50%;
+          gap: 1%;
+          width: 20vw;
+      }
+  
+  
+      #grid-container {
+          margin: 0.1vw;
+          padding: 1%;
+          flex-grow: 0.8;
+          /* background-color: #fff; */
+          border: 3px solid #fff  ;
+          display: flex;
+          flex-wrap: wrap;
+          overflow-y: auto;
+          width: 35vw;
+          gap: 12px;
+      }
+  
+      .grid-item {
+          position: relative;
+          height: 18vh;
+          width: 48%;
+          border: 1px solid #fff  ;
+          box-sizing: border-box;
+      }
+  
+      .fr {
+          min-width: 8vw;
+      }
+  
+      .grid-item:hover {
+          /* background-color: black; */
+          color: #0de1ef;
+          opacity: 95%;
+          transform: scale(1.1);
+  
+      }
+  
+      #quality {
+              /* background: red; */
+          align-items: center;    
+          place-items: center;
+          align-content: center;
+          width: 20vw;
+          height: 20vh;
+      }
+  
+      .grid-item img {
+          display: block;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          z-index: 1;
+      }
+  
+  #controls{
+      place-items: center;
+      align-content: center;
+  }
+  
+      .check-box input[type="checkbox"]:checked+img {
+          background: white;
+          opacity: 1;
+          /* Set the opacity when checkbox is checked */
+      }
+  
+      .check-box input[type="checkbox"]:not(:checked)+img {
+          opacity: 1;
+      }
+  
+      .check-box {
+          position: relative;
+      }
+  
+      .check-box input[type="checkbox"] {
+          position: absolute;
+          top: 0;
+          left: 0;
+          opacity: 1;
+      }
+  
+  
+      .range-input {
+          -webkit-appearance: none;
+          appearance: none;
+          width: 30%;
+          cursor: pointer;
+          outline: none;
+          border-radius: 15px;
+          height: 6px;
+          background: #ccc;
+      }
+  
+      .range-input::-webkit-slider-thumb {
+          -webkit-appearance: none;
+          appearance: none;
+          height: 15px;
+          width: 15px;
+          background-color: #6bf0d3;
+          border-radius: 50%;
+          border: none;
+          transition: .2s ease-in-out;
+      }
+  
+      .range-input::-moz-range-thumb {
+          height: 15px;
+          width: 15px;
+          background-color: #6bf0d3;
+          border-radius: 50%;
+          border: none;
+          transition: .2s ease-in-out;
+      }
+  
+      .range-input::-webkit-slider-thumb:hover {
+          box-shadow: 0 0 0 10px rgba(255, 85, 0, .1)
+      }
+  
+      .range-input:active::-webkit-slider-thumb {
+          box-shadow: 0 0 0 13px rgba(255, 85, 0, .2)
+      }
+  
+      .range-input:focus::-webkit-slider-thumb {
+          box-shadow: 0 0 0 13px rgba(255, 85, 0, .2)
+      }
+  
+      .range-input::-moz-range-thumb:hover {
+          box-shadow: 0 0 0 10px rgba(255, 85, 0, .1)
+      }
+  
+      .range-input:active::-moz-range-thumb {
+          box-shadow: 0 0 0 13px rgba(255, 85, 0, .2)
+      }
+  
+      .range-input:focus::-moz-range-thumb {
+          box-shadow: 0 0 0 13px rgba(255, 85, 0, .2)
+      }
+  
+      .value2 {
+          font-size: 26px;
+          width: 50px;
+          text-align: center;
+      }
+  
+      .range-slider {
+          flex: 1;
+      }
+  
+      .sliderticks {
+          display: flex;
+          justify-content: space-between;
+          padding: 0 10px;
+      }
+  
+      .sliderticks span {
+          display: flex;
+          justify-content: center;
+          width: 1px;
+          height: 10px;
+          background: #d3d3d3;
+          line-height: 40px;
+      }
+  
+  
+      body {
+          font-family: system-ui;  
+      }
+    
+      .content {
+          width: 100%;
+          max-width: 500px;
+          height: 80%;
+          background: #fff;
+          padding: 0px 10px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+      }
+  
+      .range {
+          display: flex;
+          align-items: center;
+          margin-bottom: 1rem;
+      }
+  

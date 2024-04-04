@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generated Video</title>
+</head>
+<style>
+    body{
+    background-color: #131316;
+    color:#ffffff;
+    /* font-family: 'Poppins',sans-serif; */
+    border:3px white;
+    border-radius: 5%;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    background-image: url('https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80');
+}
+
+    #myvideo {
+        display: flex;
+        place-items: center;
+        justify-content: center;
+        align-content: center;
+        align-items: center;
+    }
+
+    a{
+  display: block;
+  width: 150px;
+  height: 40px;
+  line-height: 40px;
+  font-size: 18px;
+  font-family: sans-serif;
+  text-decoration: none;
+  color: white;
+  border: 0.2rem solid #d6d3d3 ;
+  letter-spacing: 2px;
+  text-align: center;
+  position: relative;
+  transition: all .35s;
+  border-radius: 5%;
+  margin: 0.5%;
+}
+
+a span{
+  position: relative;
+  z-index: 2;
+}
+
+a:after{
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: rgba(13,255,239,0.839);
+  transition: all .35s;
+}
+
+a:hover{
+  color: #fff;
+}
+
+a:hover:after{
+  width: 100%;
+}
+
+    
+</style>
+
+<body>
+    <div class="myvideo">
+        <h1 style="font-size: 4rem;">Generated Video</h1>
+        <video width="720" height="540" controls>
+            <source src="{{ url_for('static', filename='final_output_video.mp4') }}" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <a href="{{ url_for('static', filename='final_output_video.mp4') }}" download="final_output_video.mp4"><span>Download</span></a>   
+    </div>
+    <a href="/logout"><span>Logout</span></a>
+
+</body>
+
+</html>

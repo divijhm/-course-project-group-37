@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Upload</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">   
+</head>
+
+<body style="background-attachment: fixed; background-image: url(https://c4.wallpaperflare.com/wallpaper/824/766/324/nebula-4k-teal-turquoise-wallpaper-preview.jpg);background-size: cover;background-repeat: no-repeat;">
+    <h1 style="text-align: center;background: linear-gradient(90deg, #ff0000    5%, #00B053 15%, #064a60 30%);
+    -webkit-background-clip: text;
+    -webkit-text-stroke: 12px transparent; color:  rgba(13,255,239,0.839);font-size: 4rem;"><b>Upload Images</b></h1>
+
+    <a href="/logout" style="position: fixed;top: 20px;right: 20px;z-index: 9999;display: block;"><span>Logout</span></a>
+
+    <div class="container">
+        <div id="drop-zone" class="drop-zone">
+            <div class="drop-message"><b>
+                    <span style="font-size: 2rem;">Drag & Drop Files Here</span>
+                    <span class="browse-link" onclick="document.getElementById('file-input').click()">or browse to upload</span></b>
+            </div>
+            <input type="file" id="file-input" multiple style="display: none;">
+        </div>
+    </div>
+
+    <div id="thumbnail-container" class="thumbnail-container">
+    </div>
+    <div id="file-list">
+        <p class="empty" style="color: white;font-size: 1rem;">No files uploaded</p>
+    </div>
+
+    <div id="wrapper" class="wrapper">
+        <div style="flex-grow: 0.8;"></div>
+        <div style="flex-grow: 1.2;"><a href="/edit"><span>Create Video</span></a></div>
+        <div style="flex-grow: 1.2;"><a href="/search"><span>Search Images</span></a></div>
+        <div style="flex-grow: 1.2;"><a href="/audio"><span>Add Audio</span></a></div>
+    
+        </a>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{{ url_for('static', filename='upload.js') }}"></script>
+
+</body>
+
+</html>

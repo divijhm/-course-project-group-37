@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Editing Website</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Macondo&family=Orbitron:wght@400..900&family=Poor+Story&family=Single+Day&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url('static/1.avif'); /* Replace 'background.jpg' with your actual image file */
+            background-size: cover;
+            font-family: 'orbitron', sans-serif;
+            color: white;
+        }
+
+        #header {
+            position: absolute;
+            top: 10px;
+            left: 20px;
+        }
+
+        #header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+        .orbitron{
+            font-family: "Orbitron", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 400px;
+            font-style: normal;
+        }
+
+        #header img {
+            width: 50px; /* Adjust the width as needed */
+            height: auto;
+        }
+
+        #content {
+            position: absolute;
+            top: 20%;
+            left: 20px;
+            transform: translateY(-50%, -50%);
+            text-align: left;
+            font-size: 30px;
+            font-family: 'orbitron', sans-serif;}
+
+        #content h2 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        #content p {
+            font-size: 18px;
+        }
+
+       
+        .rotate-image {
+            width:300px;
+        }
+
+        .image1 {
+            width: 340px; /* Increased width by 20% */
+            height: auto; /* Maintain aspect ratio */
+            top:10%;
+            right:20px;
+            border-width: 10px;
+            border-color: #ffffff;
+            border-radius: 16%;
+            position: absolute;
+
+        }
+
+        .image2 {
+            position: absolute;
+            top: 25%; /* Adjusted vertical position */
+            right: 100px; /* Adjusted horizontal position */
+            width: 500px; /* Increased width by 40% */
+            height: auto; /* Maintain aspect ratio */
+            border-width: 10px;
+            border-color: #ffffff;
+            border-radius: 16%;
+        }
+
+        .image3 {
+            position: absolute;
+            top: 65%; /* Adjusted vertical position */
+            right: 300px; /* Adjusted horizontal position */
+            width: 400px; /* Increased width by 60% */
+            height: auto; /* Maintain aspect ratio */
+            border-width: 10px;
+            border-color: #ffffff;
+            border-radius: 16%;
+        }
+
+        .image4 {
+            position: absolute;
+            top: 45%; /* Adjusted vertical position */
+            right: 2px; /* Adjusted horizontal position */
+            width: 400px; /* Increased width by 10% */
+            height: auto; /* Maintain aspect ratio */
+            border-width: 10px;
+            border-color: #ffffff;
+            border-radius: 16%;
+        }
+
+        #buttons {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .button {
+            background-color: rgba(13, 255, 239, 0.839); /* Change the color as needed */
+            color: black;
+            border-radius: 40%;
+            padding: 10px 20px;
+            margin: 0 10px;
+            text-decoration: none;
+            font-size: 25px;
+            cursor: pointer;
+            font-family: 'orbitron', sans-serif;
+        }
+
+        .button:hover {
+            background-color: rgb(0, 157, 254);
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+    <div id="header">
+        <img src="logo.png" alt="Logo"> 
+        <h1>Video Editing Website</h1>
+    </div>
+   
+    <div id="content">
+        <hr style="height:5px;border-width:0;color:white;background-color:white">
+        <h2 style="font-size: 45px;"><b>Your Freedom to Creativity</b></h2>
+        <hr style="height:5px;border-width:0;color:white;background-color:white">
+        <p style="font-size: 25px;">Transform your videos with ease and fun.</p>
+        <p style="font-size: 25px;">A cross-platform for making video anywhere, anytime.</p>
+        <p style="font-size: 25px;">By anyone around the globe.</p>
+        <p style="font-size:30px;">JOIN NOW!</p>
+        <div id="buttons">
+            <button onclick="location.href='/login'">Login</button>
+        </div>
+    </div>
+
+        <img class="rotate-image image1" src="/static/11.jpg" alt="Image 1"> 
+        <img class="rotate-image image2" src="/static/6.image" alt="Image 2"> 
+        <img class="rotate-image image3" src="/static/44.avif" alt="Image 3"> 
+        <img class="rotate-image image4" src="/static/3.image" alt="Image 4"> 
+  
+
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang='en'>
+<!--ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'Kayak@123';-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+        Workspace
+    </title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?&family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='page3.css') }}">
+</head>
+
+<body>
+
+
+    <div class="box-wrapper">
+        <div id="box1" style="font-size: 2.5rem;">
+            CONVERT IMAGES TO VIDEO
+        </div>
+    
+        <div id="box3">
+            <form action="/process_selection" method="post" id="selectedImages">
+                <div id="box5" class="grid-container">
+                    <a href="/search"><button style="margin-top: 4vh;" class="button-73" role="button" >Search Images</button>    
+                    <!-- <input type="text" id="search_query" placeholder="Search by image name..."> -->
+                    {% for image in images %}
+                    <div class="grid-item">
+                        <input type="checkbox" id="cbtest-{{ loop.index }}" name="selectedImages">
+                        <label for="cbtest-{{ loop.index }}" class="check-box"></label>
+                        <img src="{{ image.src }}" alt="{{ image.alt }}">
+                    </div>
+                    {% endfor %}
+                
+
+                </form>
+        
+
+
+        <div class="middle-column">
+            <div id="box4">
+                <video id="sample" controls>
+                    <source src="../static/cat.mp4" type="video/mp4">
+                    <source src="../static/1.mp4" type="video/ogg">
+                </video>
+                SCREEN
+            </div>
+            <div id="box9" style="background-color: grey;opacity: 95%;">
+                VIDEO
+            </div>
+            <div id="box10" style="background-color: grey;opacity: 95%;">
+                AUDIO
+            </div>
+        </div>
+
+        <div class="last-column">
+            <div id="box8" class="button-container2">
+                <h4>TRANSITION</h4>
+                <ul>
+                    <button id="fl">Flip</button>
+                    <button id="bl">Blur</button>
+                    <button id="bo">Bounce</button>
+                    <button id="pu">Pulse</button>
+                    <button id="fi">Fade In</button>
+                    <button id="'fo">Fade Out</button>
+            </div>
+
+            <div id="box11" class="button-container2">
+                <h4>MUSIC</h4>
+                <ul>
+                    <button>Cradles</button>
+                    <button>Theme</button>
+                    <button>Faded</button>
+                    <button>Runaway</button>
+                    <button>Loser</button>
+
+            </div>
+        </div>
+
+        <div id="box2" class="button-container">
+            <button id="one" onclick="buttonClicked()">
+                <img src="../static/left-arrow.png" alt="Undo">
+            </button>Undo
+            <button id="two" onclick="buttonClicked()">
+                <img src="../static/right-arrow.png" alt="Redo">
+            </button>Redo
+            <button id="three" onclick="buttonClicked()">
+                <img src="../static/preview.png" alt="Preview">
+            </button>Preview
+            <button id="four" onclick="buttonClicked()">
+                <img src="../static/download.png" alt="Preview">
+            </button>Save
+            <button id="five" onclick="buttonClicked()">
+                <img src="../static/checklist.png" alt="Preview">
+            </button>Done
+        </div>
+    </div>
+
+</body>
+
+</html>

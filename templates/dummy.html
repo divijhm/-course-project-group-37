@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dummy page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='dummy.css') }}">
+
+</head>
+
+<body>
+
+    <div id="box3">
+        <form action="/process_selection" method="post" id="selectedImages">
+            <div id="box5" class="grid-container">
+                {% for image in images %}
+                <div class="grid-item">
+
+                    <label for="cbtest-{{ loop.index }}" class="check-box">
+                        <input type="checkbox" id="cbtest-{{ loop.index }}" ; name="selectedImages" {% if
+                            image.image_selected==1 %} checked {% endif %} data-image-id="{{ image.id }}">
+                        <img src="{{ image.src }}" alt="{{ image.alt }}" image_selected="{{image.image_selected}}"
+                            image_id="{{image.id}}">
+                    </label>
+
+
+                    <div class="form-container">
+                        <form id="form1" onsubmit="updateParameters(this); return false;">
+
+                            <input type="hidden" name="image_id" value="{{ image.id }}">
+                            <div>
+                                <label for="image_duration">Image Duration:</label><br>
+                                <input class="range-input" type="range" min="1" max="10" name="image_duration"
+                                    value="{{ image.image_duration }}"></input>
+                            </div>
+                            <div><label for="image_transition">Image Transition:</label><br>
+                                    <select id="color" name="image_transition">
+                                        <option value="0">None</option>
+                                        <option value="1">Fade in Fade Out</option>
+                                        <option value="2">Fade in</option>
+                                        <option value="3">Fade out</option>
+                                    </select>
+                                    <div>
+                                <a href="/edit"><button type="submit">Update</button></a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                {% endfor %}
+
+            </div>
+        </form>
+        <div id="box7">
+            <a href="/edit">
+                <button class="button-74" role="button">DONE</button>
+            </a>
+
+
+            <a href="/search"><button style="margin-top: 4vh;" class="button-74" role="button">Images </button>
+            </a>
+            <a href="/loading"><button style="margin-top: 4vh;" class="button-74" role="button">GENERATE VIDEO</a>
+
+
+        </div>
+
+        <div id="audio-video">
+            <div class="form-container2">
+                <form id="form2" onsubmit="updateParameters2(this); return false;">
+                    <label for="audio_id">Choose an Audio</label>
+                    <select id="color" name="audio_id">
+                        <option value="0">No Audio</audio></option>
+                        <option value="-1">Pop</audio></option>
+                        <option value="-2">Rock</audio></option>
+                        <option value="-3">Jazz</audio></option>
+                        <option value="-4">Upbeat</audio></option>
+                        {% for audio in user_audios %}
+                        <option value="{{ audio.audio_id }}">{{ audio.audio_name }}</option>
+                        {% endfor %}
+                    </select>
+                    <div>
+                        <label for="frames">Set Duration</label>
+                    </div>
+                    
+
+                    <div class="range">
+                        <input type="range" min="1" max="10" value="1" id="frames" name="frames" class="range-input">
+                        <div class="value2">1</div>
+                    </div>
+                    <a href="/edit"><button type="submit" class="button-74">Update</button></a>
+                </form>
+            </div>
+            <br><br>
+            <div id="quality">
+                <div class="form-container2">
+                    <form id="form3" onsubmit="updateParameters3(this); return false;">
+                        <label for="video_quality">Choose Video Quality</label>
+                        <select id="color" name="video_quality_id">
+                            <option value="1">480p</audio></option>
+                            <option value="2">720p</audio></option>
+                            <option value="3">1080p</audio></option>
+                        </select>
+                        <div>
+                            <br><br>
+                            <a href="/edit"><button type="submit" class="button-74">Update</button></a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div id="controls">
+
+        </div>
+    </div>
+
+    <div id="box6" class="grid-container">
+        {% for image in images %}
+        {% if image.image_selected == 1 %}
+        <div class="grid-item fr">
+            <img src="{{ image.src }}" alt="{{ image.alt }}">
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+
+</body>
+<script>
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+        checkboxes.forEach(function (checkbox) {
+            checkbox.addEventListener('change', function () {
+                const imageId = this.getAttribute('data-image-id');
+                const isChecked = this.checked;
+                updateImageSelected(imageId, isChecked);
+            });
+        });
+    });
+
+    function updateImageSelected(imageId, isChecked) {
+        fetch('/update_image_selected', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                image_id: imageId,
+                image_selected: isChecked ? 1 : 0
+            })
+        })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Failed to update image selection');
+                }
+            })
+            .catch(error => console.error('Error:', error));
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+        checkboxes.forEach(function (checkbox) {
+            checkbox.addEventListener('change', function () {
+                const formContainers = document.querySelectorAll('.form-container');
+                formContainers.forEach(function (formContainer) {
+                    formContainer.style.display = 'none';
+                });
+
+                if (this.checked) {
+                    const formContainer = this.closest('.grid-item').querySelector('.form-container');
+                    formContainer.style.display = 'block';
+                    const controlDiv = document.getElementById('controls');
+                    controlDiv.innerHTML = '';
+                    controlDiv.appendChild(formContainer.cloneNode(true));
+                }
+            });
+        });
+    });
+
+    function updateParameters(form1) {
+        const formData = new FormData(form1);
+        const imageId = formData.get('image_id');
+        const imageDuration = formData.get('image_duration');
+        const imageTransition = formData.get('image_transition');
+        fetch('/update_image', {
+            method: 'POST',
+            body: formData
+        })
+            .then(response => {
+                if (response.ok) {
+                    console.log('Image details updated successfully');
+                } else {
+                    console.error('Failed to update image details');
+                }
+            })
+            .catch(error => console.error('Error:', error));
+    }
+    function updateParameters2(form2) {
+        const formData = new FormData(form2);
+        const audioId = formData.get('audio_id');
+        const Frames = formData.get('frames');
+        fetch('/add_audio', {
+            method: 'POST',
+            body: formData
+        })
+            .then(response => {
+                if (response.ok) {
+                    console.log('Audio details updated successfully');
+                } else {
+                    console.error('Failed to update audio details');
+                }
+            })
+            .catch(error => console.error('Error:', error));
+    }
+
+    const sliderEl = document.querySelector("#frames")
+    const sliderValue = document.querySelector(".value2")
+
+    sliderEl.addEventListener("input", (event) => {
+        const tempSliderValue = event.target.value;
+        sliderValue.textContent = tempSliderValue;
+
+        const progress = (tempSliderValue / sliderEl.max) * 100;
+
+        sliderEl.style.background = `linear-gradient(to right, #6bf0d3 ${progress}%, #ccc ${progress}%)`;
+    })
+
+    document.getElementById('selected').addEventListener('click', function () {
+        const selectedImagesContainer = document.getElementById('box6');
+        const isVisible = selectedImagesContainer.style.opacity !== '0';
+        var timelineText = document.getElementById('timelineText');
+        if (isVisible == 0) {
+            this.textContent = 'HIDE TIMELINE';
+        } else {
+            this.textContent = 'SHOW TIMELINE';
+        }
+        if (isVisible) {
+            selectedImagesContainer.style.opacity = '0';
+            hideGridItems();
+        } else {
+            selectedImagesContainer.style.opacity = '1';
+            showGridItems();
+        }
+    });
+
+    function hideGridItems() {
+        const gridContainer = document.getElementById('box6');
+        const gridItems = document.querySelectorAll('box6 .grid-item img');
+        gridItems.forEach(item => {
+            item.style.opacity = '0';
+        });
+    }
+
+    function showGridItems() {
+        const gridContainer = document.getElementById('box6');
+        const gridItems = document.querySelectorAll('box6 .grid-item img');
+        gridItems.forEach(item => {
+            item.style.opacity = '1';
+        });
+    }
+
+</script>
+
+</html>

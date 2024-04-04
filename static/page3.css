@@ -1,0 +1,369 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+
+body {
+    margin: 2%;
+    justify-content: center;
+    overflow: hidden;
+    background-color:black;
+    font-family:'orbitron';
+}
+
+.orbitron {
+    font-family: "Orbitron", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+  }
+
+  input[type="text"] {
+    width: 96%;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.box-wrapper {
+    position: relative;
+    height: 95vh;
+    width: 95vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    box-shadow:0.875vw 0.875vw 2vw #0de1ef;;    
+}
+#box10{
+    margin: 0.1vw;
+}
+#box1 {
+    margin: 0.1vw;
+    padding: 1.5vw;
+    border: solid 0.16vw #0de1ef;
+    background-color:black;
+    opacity:85%;
+}
+
+#box2 {
+    padding: 1vw;
+    border: solid 0.16vw #0de1ef;
+    background-color:black;
+    margin: 0.1vw;
+    opacity:85%;
+    
+}
+
+#box3 {
+
+    padding: 0.4vw;
+    flex-grow: 1;
+    height: 5vh;
+    width: 95vw;
+    display: flex;
+    flex-direction: row;
+}
+
+#box5 {    
+    margin: 0.1vw;
+    padding: 5%;
+    flex-grow: 0.8;
+    border: solid 0.16vw #0de1ef;
+    background-color: black;
+    display: flex;
+    flex-wrap: wrap; 
+    height: 99%; 
+    overflow-y: auto; 
+    width:23vw;
+    gap: 12px;
+}
+
+
+.grid-item {
+    position: relative;
+    height: 23vh;
+    width: calc(50% - 0.4rem);
+    border: 1px solid #ccc;
+    box-sizing: border-box; 
+    
+  }
+  .grid-item:hover
+  {
+      background-color: black;
+      color: #0de1ef  ;
+      opacity: 95%;
+      transform: scale(1.1);
+  
+  }
+  
+  .grid-item img {
+    display: block;
+    width: 100%; 
+    height: 100%;
+    object-fit: cover;
+   z-index: 0;
+  }
+  
+  .image-checkbox {
+    position: absolute;
+    top: 1px; /* Adjust positioning of checkbox from top */
+    left: 1px;
+    width:1px;
+    height: 1px;
+    z-index: 1; /* Adjust positioning of checkbox from left */
+}
+
+.check-box
+{
+    display: none;
+}
+
+#box4
+{
+    height: 40vh;
+    margin: 0.1vw;
+    position: relative;
+
+}
+#box4 video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    max-width: 100%; 
+    max-height: 100%; 
+    object-fit: cover; 
+}
+
+
+.middle-column {
+    flex-grow: 2.3;
+    display: flex;
+    flex-direction: column;
+}
+
+.middle-column div {
+    flex-grow: 1;
+    margin: 0.1vw;
+    border: solid 0.16vw #0de1ef;
+    max-width: 60vw;
+    background-color:black;
+   
+}
+
+
+.last-column {
+    /* flex-grow: 0.1; */
+    display: flex;
+    flex-direction: column;
+    width:15vw;
+}
+
+.last-column div {
+    flex-grow: 0.5;
+    /* max-height: 45vh;
+    max-width: 20vw; */
+    /* width: 100%; */
+    margin: 0.1vw;
+    overflow: auto;
+    border: solid 0.16vw #0de1ef;
+    background-color:black;
+    opacity:85%;
+}
+
+.last-column div+div {
+    /* margin-top: 1vw; */
+    width:100%;
+
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column; 
+    opacity:85%;    
+}
+
+
+.button-container button {
+    margin-bottom: 5px;
+    margin-top: 5px; /* Add some space between buttons */
+    padding: 10px;
+    background-color: #000000;
+    border-style: ridge;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    height:14%;
+    border-radius: 20%;
+}
+
+.button-container button img {
+    width: 100%; /* Make the image fill the button horizontally */
+    height: 100%; /* Maintain aspect ratio */
+}
+
+.button-container button:hover 
+{
+    background-color: white;
+    opacity: 95%;
+    transform: scale(1.1);
+}
+.button-container2 {
+    max-width: 100%;
+    display: flex;
+    flex-direction: column; 
+}
+
+
+.button-container2 button {
+    margin-bottom: 0.5vh;
+    margin-top: 0.5vh;
+    opacity: 0.8;
+    /* margin-left:0.05vw;  */
+    padding: 0.8vh;
+    background-color: #000000;
+    transition: background-color 0.3s ease;
+    width: 90%;
+    height:20%;
+    color:white
+}
+
+.button-container2 button:hover 
+{
+    background-color: white;
+    color: black;
+    transform: scale(1.1);
+}
+#fi
+{
+transition: opacity 0.5s ease; 
+}
+#fi:hover
+{
+opacity: 1.5 ;
+}
+#fo:hover
+{
+    opacity: 0.4;
+}
+#fl 
+{
+    transition: transform 0.9s ease; 
+#fl:hover
+{
+    transform: rotateY(180deg);
+}
+#bl:hover
+{
+filter:blur(1.5px);
+}
+@keyframes bounce {
+    0% {
+        transform: translateY(0); 
+    }
+    50% {
+        transform: translateY(-20px); 
+    }
+    100% {
+        transform: translateY(0); 
+    }
+}
+
+#bo {
+    transition: transform 0.3s ease; 
+}
+
+#bo:hover {
+    animation: bounce 0.5s ease alternate; 
+}
+.button-73 {
+    background-color: #FFFFFF;
+    border-radius: 40em;
+    box-shadow: #ADCFFF 0 -12px 6px inset;
+    box-sizing: border-box;
+    color: #000000;
+    cursor: pointer;
+    display: inline-block;
+    font-family: -apple-system,sans-serif;
+    font-size: 0.5rem;
+    font-weight: 700;
+    letter-spacing: -.24px;
+    margin: 0;
+    padding: 1rem 1.3rem;
+    quotes: auto;
+    text-align: center;
+    transition: all .15s;
+    touch-action: manipulation;
+  }
+  
+  .button-73:hover {
+    background-color: rgb(13,255,239);
+    box-shadow:  #064a60 0 -6px 8px inset;
+    transform: scale(1.125);
+  }
+  
+  .button-73:active {
+    transform: scale(1.025);
+  }
+  
+  @media (min-width: 768px) {
+    .button-73 {
+      font-size: 1.5rem;
+      padding: .75rem 2rem;
+    }
+  }
+
+
+@keyframes pulse {
+    0% {
+        transform: scale(1); 
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1); /* Return to original scale */
+    }
+}
+
+#pu:hover {
+    animation: pulse 0.2s infinite alternate; /* Apply pulse animation on hover */
+}
+
+.button-container3 {
+    max-width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column; 
+}
+
+
+.button-container3 button {
+    margin-bottom: 0.5vh;
+    margin-top: 0.5vh;
+    margin-left:0.05vw; /* Add some space between buttons */
+    padding: 0.8vh;
+    background-color: #000000;
+    transition: background-color 0.3s ease;
+    width: 80%;
+    height:20%;
+    color:white
+}
+
+.button-container3 button:hover 
+{
+    background-color: white;
+    color: black;
+    opacity: 95%;
+    transform: scale(1.1);
+}
+
+
+}
